@@ -3,19 +3,27 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "margin-analytics-lab"
-version = "0.1.0"
-description = "A synthetic-data margin analytics demonstration CLI."
+name = "msc-bi-analytics-retail-forecasting"
+version = "0.2.0"
+description = "Educational synthetic retail forecasting and margin-analysis lab."
 readme = "README.md"
 requires-python = ">=3.11"
+dependencies = ["Flask>=3.1,<4"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9", "ruff>=0.8,<1"]
 
 [project.scripts]
 margin-report = "margin_analytics_lab.cli:main"
+synthetic-forecast = "margin_analytics_lab.forecast_cli:main"
+synthetic-dashboard = "margin_analytics_lab.dashboard:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-
 target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

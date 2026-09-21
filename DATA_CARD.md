@@ -1,20 +1,24 @@
-# Data Card
+# Data Card — Synthetic Retail Fixtures
 
 ## Purpose
 
-`data/sample_sales.csv` is a deliberately small fixture for exercising a generic margin-analysis workflow.
+The fixtures exercise a generic margin-analysis workflow and a deterministic daily-sales forecasting baseline.
 
 ## Provenance
 
-Every value and category in this repository was invented for this repository. The file is not collected from people, customers, suppliers, retailers, transactions, or external systems.
+Every value and category in this repository was independently invented for this repository. The data are not collected from people, customers, suppliers, retailers, transactions, or external systems. They contain no personal data, credentials, identifiers, locations, invoices, or real business metrics.
 
 ## Contents
 
-The fixture contains generic product-category labels and positive decimal revenue and cost values. It contains no personal data, credentials, identifiers, locations, dates, invoices, or real business metrics.
+- `data/sample_sales.csv`: a small generic category fixture with positive decimal revenue and cost values.
+- `synthetic_daily_sales()`: generated in-memory daily values with a documented trend plus a fixed repeating weekly effect.
+- `synthetic_margin_rows()`: generated in-memory generic category revenue/cost values.
+
+No generated dataset needs to be committed; generated datasets and outputs are ignored by Git.
 
 ## Limitations and responsible use
 
-- It is fictional and unsuitable for inference about any company, market, customer, or product.
-- It omits taxes, returns, rebates, discounts, inventory valuation, currency conversion, accounting periods, and audit controls.
-- Calculations are educational demonstrations, **not accounting software**.
-- Validate and govern any real-world data independently before using analytic outputs.
+- The data are fictional and unsuitable for inference about any company, market, customer, product, or financial outcome.
+- They omit taxes, returns, rebates, discounts, inventory, currency, accounting periods, promotions, stockouts, and audit controls.
+- Calculations and forecasts are educational demonstrations, not accounting, retail, or financial forecasting software.
+- Validate, govern, and document any real-world data independently before using analytic outputs.
