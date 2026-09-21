@@ -6,3 +6,17 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+
+# Local generated artifacts: never commit datasets, model outputs, logs, or databases.
+generated-data/
+outputs/
+models/
+logs/
+*.csv.generated
+*.json.generated
+*.sqlite
+*.sqlite3
+*.db
+*.log
+report.md
+forecast-summary.json

@@ -1,5 +1,9 @@
 # Security Policy
 
+## Scope
+
+This repository is a local, synthetic educational demonstration. It deliberately has no authentication, authorization, persistence, external integrations, deployment configuration, or production support. The Flask dashboard binds only to `127.0.0.1` and runs with debug mode disabled.
+
 ## Supported versions
 
 Security fixes are provided on the latest commit of the `main` branch.
