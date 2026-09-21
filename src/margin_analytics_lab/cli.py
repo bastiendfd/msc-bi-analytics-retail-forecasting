@@ -9,6 +9,18 @@ from .reporting import build_category_report
 from .validation import validate_rows
 
 
+def escape_markdown_table_cell(value: object) -> str:
+    """Return text safe for a single Markdown table cell."""
+    return (
+        str(value)
+        .replace("\\", "\\\\")
+        .replace("|", "\\|")
+        .replace("\r\n", "<br>")
+        .replace("\n", "<br>")
+        .replace("\r", "<br>")
+    )
+
+
 def render_markdown(report: list[dict[str, object]]) -> str:
     """Render a ranked report as a stable Markdown table."""
     lines = [
@@ -20,7 +32,14 @@ def render_markdown(report: list[dict[str, object]]) -> str:
     for rank, item in enumerate(report, start=1):
         lines.append(
             "| {rank} | {category} | {revenue:.2f} | {cost:.2f} | {margin:.2f} | "
-            "{margin_rate:.2f}% |".format(rank=rank, **item)
+            "{margin_rate:.2f}% |".format(
+                rank=rank,
+                category=escape_markdown_table_cell(item["category"]),
+                revenue=item["revenue"],
+                cost=item["cost"],
+                margin=item["margin"],
+                margin_rate=item["margin_rate"],
+            )
         )
     return "\n".join(lines) + "\n"
 

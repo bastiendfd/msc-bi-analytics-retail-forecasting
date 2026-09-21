@@ -19,7 +19,7 @@ On macOS/Linux, activate or invoke the environment using the platform-appropriat
 
 ## Input schema
 
-The CSV must have these exact header fields:
+The CSV must include these required header fields. Additional headers are allowed and ignored:
 
 | Field | Meaning | Rules |
 | --- | --- | --- |
